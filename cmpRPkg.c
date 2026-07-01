@@ -89,12 +89,12 @@ int Tbcload_SafeInit(Tcl_Interp* interp)
 static int TbcloadInitInternal(Tcl_Interp* interp, int isSafe)
 {
 #ifdef USE_TCL_STUBS
-    if (!Tcl_InitStubs(interp, TCL_VERSION, 1))
+    if (!Tcl_InitStubs(interp, TCL_VERSION, 0))
     {
         return TCL_ERROR;
     }
 #else
-    if (Tcl_PkgRequire(interp, "Tcl", TCL_VERSION, 1) == NULL)
+    if (Tcl_PkgRequire(interp, "Tcl", TCL_VERSION, 0) == NULL)
     {
         return TCL_ERROR;
     }
